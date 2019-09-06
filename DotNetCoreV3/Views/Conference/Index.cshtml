@@ -1,0 +1,23 @@
+﻿@{
+    Layout = "_Layout";
+}
+
+@using Microsoft.Extensions.Options
+@using DotNetCoreV3.Config
+
+@inject IOptions<SpecialConfigurationOptions> options
+<h3>Hello NEW 3</h3>
+
+@if (options.Value.ThresholdValue > 400)
+{
+    <h3>Below threshold</h3>
+}
+else
+{
+    <h3>Above threshold</h3>
+}
+
+
+<h1>Summary</h1> 
+@await Component.InvokeAsync("Summary", new { id = "1" })
+@await Component.InvokeAsync("Summary", new { id = "2" })
